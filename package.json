@@ -1,0 +1,26 @@
+{
+  "name": "tweetlove",
+  "version": "1.0.0",
+  "description": "A bot that automate tweets",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevNitish/tweetLove.git"
+  },
+  "author": "Nitish Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevNitish/tweetLove/issues"
+  },
+  "homepage": "https://github.com/DevNitish/tweetLove#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "socket.io": "^1.4.8",
+    "twit": "^2.2.4"
+  }
+}

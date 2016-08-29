@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	<!-- Website Title & Description for Search Engine purposes -->
+	<title>Nitish Bootstrap Page</title>
+	<meta name="description" content="">
+
+	<!-- Mobile viewport optimized -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+	<!-- Custom CSS -->
+	<link href="includes/css/styles.css" rel="stylesheet">
+
+	<!-- Include Modernizr in the head, before any other Javascript -->
+	<script src="includes/js/modernizr-2.6.2.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-fixed-top">
+			<div class="container">
+
+				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+				<button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="#"><h4 id="logo">Time Travel</h4></a>
+
+				<div class="nav-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav">
+						<li >
+							<a href="index.html"><span class="glyphicon glyphicon-home">  Home</a>
+						</li>
+						<li class="active">
+							<a href="#"> <span class="glyphicon glyphicon-picture">  Places</a>
+						</li>
+						<li > 
+							<a href="#"><span class="glyphicon glyphicon-plane">  Booking</a>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-th-list">  Services <span class="glyphicon glyphicon-chevron-down"></strong></a>
+
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Offer Zone</a>
+								</li>
+
+								<li>
+									<a href="#">Check Status</a>
+								</li>
+
+								<li>
+									<a href="#">Cancle Booking</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li class="dropdown-header">More Services</li>
+
+								<li>
+									<a href="#">Pick Up</a>
+								</li>
+
+								<li>
+									<a href="#">Site Guides</a>
+								</li>
+							</ul><!-- end dropdown-menu -->
+						</li>
+					</ul>
+
+					<form class="navbar-form pull-left">
+						<input type="text" class="form-control" placeholder="Search this site..." id="searchInput">
+						<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+					</form><!-- end navbar-form -->
+
+					<ul class="nav navbar-nav pull-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Account <strong class="caret"></strong></a>
+
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a>
+								</li>
+
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-refresh"></span> Update Profile</a>
+								</li>
+
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-briefcase"></span> Billing</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-off"></span> Sign out</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- end nav pull-right -->
+				</div><!-- end nav-collapse -->
+
+			</div><!-- end container -->
+		</nav><!-- end navbar -->
+		<div class="well">
+			<!-- header starts -->
+			<div class="row">
+				<header  id="bigCallout">
+					<div class="col-12" id="bigHeading">
+
+
+						<!-- Visible only on small devices -->
+						<div class="well well-small visible-sm">
+							<a href="" class="btn btn-large btn-block btn-default"><span class="glyphicon glyphicon-phone"></span> Give us a call!</a>
+						</div><!-- end well-small -->
+
+						<div class="well">
+							<div class="page-header text-center">
+								<h1>Summer is here! <small>Select from our best offers</small></h1>
+							</div><!-- end page-header -->
+
+						</div><!-- end well -->
+
+					</div><!-- end col-12 -->
+
+				</header>
+			</div>
+			<!-- header ends -->
+		</div><!-- well ends -->
+
+		<div class="carousel slide" id="myCarousel">
+
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+				<li data-slide-to="1" data-target="#myCarousel"></li>
+				<li data-slide-to="2" data-target="#myCarousel"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+
+
+			<div class="row " id="features">
+				<div class="col-sm-6 feature">
+					<div class="panel">
+
+						<div class="panel-heading">
+							<h3 class="panel-title"> Kerala</h3>
+						</div>
+						<div class="panel-body">
+						<img src="images/badge_html5.jpg" id ="mypic"alt="Kerala" class="img-circle">
+						<p>Kerala, a state on India's tropical Malabar Coast, has nearly 600km of Arabian Sea shoreline. It's known for its palm-lined beaches and its backwaters, a network of canals popular for cruises.</p>
+						
+							<a href="#" target="_black" class="btn btn-danger btn-block" width="50%"> Book 
+							</a>	
+						
+						
+							<a href="#myModal2" role="button" class="btn btn-primary btn-block" data-toggle="modal"width="50%"><span class="glyphicon glyphicon-hand-up"></span> On Map</a>	
+									<div class="modal fade "  id="myModal2">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title"> Kerala</h4>
+										</div>
+										<!-- modal header -->
+										<div class="modal-body">
+											<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4016651.660826331!2d73.88527428188775!3d10.539096986748865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0812ffd49cf55b%3A0x64bd90fbed387c99!2sKerala!5e0!3m2!1sen!2sin!4v1462255001668" width="500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+											</div>
+											<!-- modal body -->
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Book</button>
+
+												<button type="button"  data-dismiss="modal" class="btn btn-primary" >Close</button>
+											</div>
+
+										</div>
+										<!-- modal content -->
+									</div>
+									<!-- modal dialog -->
+								</div>
+								<!-- end modal -->				
+						
+						</div>
+						<!-- panelbody -->
+					</div>
+					<!-- panel 1 -->
+
+				</div>
+				<!-- smallcol 6  feature-->
+
+				<div class="col-sm-6 feature">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">GOA</h3>
+						</div>
+
+						<img src="images/badge_css3.jpg" alt="Goa"  id ="mypic" class="img-circle">
+						<p> Goa is a state in western India with coastlines stretching along the Arabian Sea. Its long history as a Portuguese colony prior to 1961 is evident in its preserved 16th-century churches and the area’s tropical spice plantations.</p>
+						<a href="#" target="_black" class="btn btn-danger btn-block"> Book </a>			
+						
+							<a href="#myModal3" role="button" class="btn btn-primary btn-block" data-toggle="modal"width="50%"><span class="glyphicon glyphicon-hand-up"></span> On Map</a>	
+									<div class="modal fade "  id="myModal3">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title"> Goa</h4>
+										</div>
+										<!-- modal header -->
+										<div class="modal-body">
+											<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d984958.3240766539!2d73.45441951108029!3d15.34973929734055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba106336b741%3A0xeaf887ff62f34092!2sGoa!5e0!3m2!1sen!2sin!4v1462254449138" width="500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+											</div>
+											<!-- modal body -->
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Book</button>
+
+												<button type="button"  data-dismiss="modal" class="btn btn-primary" >Close</button>
+											</div>
+
+										</div>
+										<!-- modal content -->
+									</div>
+									<!-- modal dialog -->
+								</div>
+								<!-- end modal -->	
+					</div>
+					<!-- panel 1 -->
+
+				</div>
+
+				<!-- smallcol 6 feature-->
+
+			</div>
+
+
+
+			<div class="row " id="features">
+				<div class="col-sm-6 feature">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title"> Pondicherry</h3>
+						</div>
+						<img src="images/pondi.jpg" id ="mypic"alt="Pndicherry" class="img-circle">
+						<p>Pondicherry (or Puducherry), a French colonial settlement in India until 1954, is now a Union Territory town bounded by the southeastern Tamil Nadu state.</p>
+							<a href="#" target="_black" class="btn btn-danger btn-block"> Book </a>			
+						
+							<a href="#myModal4" role="button" class="btn btn-primary btn-block" data-toggle="modal"width="50%"><span class="glyphicon glyphicon-hand-up"></span> On Map</a>	
+									<div class="modal fade "  id="myModal4">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title"> Pondicherry</h4>
+										</div>
+										<!-- modal header -->
+										<div class="modal-body">
+											<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62456.796482771555!2d79.7781419840193!3d11.936388561132391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361ab8e49cfcf%3A0xcc6bd326d2f0b04e!2sPuducherry!5e0!3m2!1sen!2sin!4v1462254743115" width="500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+											</div>
+											<!-- modal body -->
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Book</button>
+
+												<button type="button"  data-dismiss="modal" class="btn btn-primary" >Close</button>
+											</div>
+
+										</div>
+										<!-- modal content -->
+									</div>
+									<!-- modal dialog -->
+								</div>
+								<!-- end modal -->	
+					</div>
+					<!-- panel 1 -->
+
+				</div>
+				<!-- smallcol 6  feature-->
+
+				<div class="col-sm-6 feature">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Mysore</h3>
+						</div>
+
+						<img src="images/mysore.jpg" alt="Goa" alt="mysore" id ="mypic" class="img-circle">
+						<p>Mysore (or Mysuru), a city in India's Karnataka state, was the capital of the Kingdom of Mysore from 1399-1947. In its center is opulent Mysore Palace, former seat of the ruling Wodeyar dynasty.</p>
+							<a href="#" target="_black" class="btn btn-danger btn-block"> Book </a>			
+							<a href="#myModal" role="button" class="btn btn-primary btn-block" data-toggle="modal"width="50%"><span class="glyphicon glyphicon-hand-up"></span> On Map</a>	
+									<div class="modal fade "  id="myModal">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title"> Mysore</h4>
+										</div>
+										<!-- modal header -->
+										<div class="modal-body">
+											<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124738.36747356654!2d76.56564877331719!3d12.310804553812114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf70381d572ef9%3A0x2b89ece8c0f8396d!2sMysuru%2C+Karnataka+570001!5e0!3m2!1sen!2sin!4v1462254946517" width="500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+											</div>
+											<!-- modal body -->
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Book</button>
+
+												<button type="button"  data-dismiss="modal" class="btn btn-primary" >Close</button>
+											</div>
+
+										</div>
+										<!-- modal content -->
+									</div>
+									<!-- modal dialog -->
+								</div>
+								<!-- end modal -->
+					</div>
+					<!-- panel 1 -->
+
+				</div>
+
+				<!-- smallcol 6 feature-->
+
+			</div>
+
+
+
+
+		</div>
+		<!-- main container -->
+	</div>
+	<hr>
+		<footer class="col-12">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<h6>Copyright &copy :2016</h6>
+					</div>
+					<div class="col-sm-4">
+						<h6>About us</h6>
+						<p> Time Travel has over 60 years of experience as a travel agency providing amazing deals for your dream vacation with amazing discounts.
+						</p>
+						<p>In Time Travel we take care of everything from booking a cab to booking a hotel. We are always happy to help. </p>
+					</div>
+					<div class="col-sm-2">
+						<h6>Navigation</h6>
+						<ul class="unstyle">
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Services</a></li>
+							<li><a href="Offers"> offers</a></li>
+						</ul>
+
+					</div>
+					<div class="col-sm-1">
+
+						<h6>Follow us</h6>
+						<ul class="unstyle">
+							<li><span><img src="images/fb.png" alt="facebook"></span><a href="#">Facebook</a></li>
+							<li><span><img src="images/twitter.png" alt="twitter"></span><a href="#">twitter</a></li>
+							<li><span><img src="images/yt.png" alt="youtube"></span><a href="#">Youtube</a></li>
+							<li><span><img src="images/insta.png" alt="insta"></span><a href="">Instagram</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-3">
+					<form class="form-group navbar-form pull-left">
+							<input type="text" class="form-control " placeholder="Subscribe news letter" id="news">
+						<button type="submit" class="btn btn-primary "><span class="glyphicon glyphicon-envelope"></span>
+						</button>
+							
+						</form>
+						<br>
+						<h6>Codded with <span class="glyphicon glyphicon-heart"></span> by Nitish</h6>
+					</div>
+				</div>
+				<!-- row -->
+			</div>
+			<!-- container -->
+		</footer>
+
+
+
+		<!-- All Javascript at the bottom of the page for faster page loading -->
+
+		<!-- First try for the online version of jQuery-->
+		<script src="http://code.jquery.com/jquery.js"></script>
+
+		<!-- If no online access, fallback to our hardcoded version of jQuery -->
+		<script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
+
+		<!-- Bootstrap JS -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Custom JS -->
+		<script src="includes/js/script.js"></script>
+
+	</body>
+	</html>
+

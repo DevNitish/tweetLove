@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-cloak>
+  {{hello}}
+
+  <form ng-submit="login()">
+    <md-card>
+      <md-card-title>Log In </md-card-title>
+      <md-input-container class="md-block">
+        <label>User Name</label>
+        <input type="text" ng-model="user.name" md-select-on-focus required>
+      </md-input-container>
+    
+     <md-input-container class="md-block">
+        <label>Password</label>
+        <input type="password" ng-model="user.password" required>
+      </md-input-container>
+
+    
+      <md-card-actions>
+        <md-button class="md-raised md-primary" type="submit" >Log in</md-button>
+      </md-card-actions>
+    </md-card>
+
+  </form>
+
+  
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+<!-- Personal js file
+ -->  <script src="authCtrl/authController.js"></script>
+
+<!-- <script type="text/javascript" src="./js/demo.js"></script>
+ -->
+</body>
+
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
