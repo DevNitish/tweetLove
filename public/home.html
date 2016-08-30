@@ -3,27 +3,42 @@
 <head>
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="includes/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
-</head>
+<!-- Mobile viewport optimized -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="includes/css/bootstrap.min.css" rel="stylesheet">
+  <link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+  <!-- Custom CSS -->
+  <link href="includes/css/styles.css" rel="stylesheet">
+
+  <!-- Include Modernizr in the head, before any other Javascript -->
+  <script src="includes/js/modernizr-2.6.2.min.js"></script>
+
+  </head>
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-cloak>
   {{hello}}
-      <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime"
-placeholder="Date" min-date="date" ng-model="dateTime" class=" md-input">
-<p>=====</p>
-<div class="dropdown">
-  <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
-    <div class="input-group"><input type="text" class="form-control" data-ng-model="data.dateDropDownInput"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i>nn</span>
+<p>======</p>
+  <!-- Single button -->
+    <div class="btn-group" uib-dropdown is-open="status.isopen">
+      <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+        Button dropdown <span class="caret"></span>
+      </button>
+      <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+        <li role="menuitem"><a href="#">Action</a></li>
+        <li role="menuitem"><a href="#">Another action</a></li>
+        <li role="menuitem"><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a href="#">Separated link</a></li>
+      </ul>
     </div>
-  </a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
-  </ul>
-</div>
 
-============
-<datetimepicker data-ng-model="data.date" data-before-render="beforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+    <!-- Split button -->
+<p>=====</p>
+
 
   <form>
     <md-card>
@@ -62,12 +77,17 @@ placeholder="Date" min-date="date" ng-model="dateTime" class=" md-input">
 
   <!-- Angular Material Library -->
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
-<script type="text/javascript" src="includes/moment/moment.js"></script>
-<script type="text/javascript" src="includes/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
-<script type="text/javascript" src="includes/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="includes/js/jquery-1.8.2.min.js"></script>
+    <!-- All Javascript at the bottom of the page for faster page loading -->
 
+    <!-- First try for the online version of jQuery-->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+    <!-- If no online access, fallback to our hardcoded version of jQuery -->
+    <script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
+
+    <!-- Bootstrap JS -->
+    <script src="includes/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="includes/ajs/ui-bootstrap-tpls.min.js"></script>
 <!-- Personal js file
  -->  <script src="authCtrl/authController.js"></script>
 
