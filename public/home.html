@@ -3,7 +3,7 @@
 <head>
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
-<!-- Mobile viewport optimized -->
+  <!-- Mobile viewport optimized -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <!-- Bootstrap CSS -->
@@ -17,49 +17,106 @@
   <!-- Include Modernizr in the head, before any other Javascript -->
   <script src="includes/js/modernizr-2.6.2.min.js"></script>
 
-  </head>
-
+</head>
+<style>
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+</style>
 <body ng-app="myApp" ng-controller="myCtrl" ng-cloak>
   {{hello}}
-<p>======</p>
-  <!-- Single button -->
-    <div class="btn-group" uib-dropdown is-open="status.isopen">
-      <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
-        Button dropdown <span class="caret"></span>
-      </button>
-      <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-        <li role="menuitem"><a href="#">Action</a></li>
-        <li role="menuitem"><a href="#">Another action</a></li>
-        <li role="menuitem"><a href="#">Something else here</a></li>
-        <li class="divider"></li>
-        <li role="menuitem"><a href="#">Separated link</a></li>
-      </ul>
-    </div>
+  <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+  <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+  <em>Tweet Time is {{tweetTime}}</em>
+ 
 
-    <!-- Split button -->
-<p>=====</p>
-
-
-  <form>
-    <md-card>
+  <form ng-submit="saveTweet(tempTweet)">
+    <md-card class="col-md-6">
       <md-input-container class="md-block">
         <label>Tweet here</label>
-        <textarea ng-model="user.biography" md-maxlength="140" rows="5" md-select-on-focus></textarea>
+        <textarea ng-model="tempTweet" md-maxlength="140" rows="5" md-select-on-focus></textarea>
       </md-input-container>
+       <div class="row well" ng-init="showDiv=false" ng-init="showDiv=false">
+    <div class="col-md-6">
+      <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+
+      </p>
+      <div ng-show="showDiv">
+      <div class="row">
+    <div class="col-md-6">
+      <label>Format: <span class="muted-text">(manual alternate <em>{{altInputFormats[0]}}</em>)</span></label> <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></option></select>
+    </div>
+    <div class="col-md-6">
+    <label >More Setting</label><br>
+      <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+  <button type="button" class="btn btn-sm btn-default" ng-click="setDate(2009, 7, 24)">2009-08-24</button>
+  <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
+  <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" uib-tooltip="After today restriction">Min date</button>
+    </div>
+  </div>
+
+  <hr />
+  
+</div>
+
+    </div> <!-- date-picker ends -->
+
+
+    <div class="col-md-6"><!-- timpicker  -->
+      <div class="row">
+
+      <div class="col-md-6" uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></div> 
+      
+        </div>
+
+        <div ng-show="showDiv">
+      <div class="row"> 
+        <div class="col-xs-6">
+          Hours step is:
+          <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+        </div>
+        <div class="col-xs-6">
+          Minutes step is:
+          <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
+        </div>
+      </div>
+
+      <hr>
+
+      <button type="button" class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
+      <button type="button" class="btn btn-default" ng-click="update()">Set to 14:00</button>
+      <button type="button" class="btn btn-danger" ng-click="clear()">Clear</button>
+
+      </div>
+    </div> <!-- timpicker ends -->
+
+  </div>
       <md-card-title>Date here
       </md-card-title>
       <md-card-actions>
-        <md-button class="md-raised md-primary">save</md-button>
-        <md-button class="md-raised md-primary">Schedule </md-button>
+         <md-button type="button" class="md-raised md-primary" ng-click="showDiv = !showDiv"><i class="glyphicon glyphicon-cog"></i> Setting</md-button>
+      
+          <md-button type="submit" class="md-raised md-primary" ><i class="glyphicon glyphicon-floppy-disk"></i> Save</md-button>
       </md-card-actions>
     </md-card>
 
   </form>
 
   <md-card ng-repeat="t in myTweet" >
-      <md-input-container class="md-block">
-       
-      <md-card-title >{{t.tweet}} and status: {{t.status}} </md-card-title>
+    <md-input-container class="md-block">
+
+      <md-card-title >{{t.text}} and status: {{t.status}} </md-card-title>
       <md-card-actions>
         <md-button class="md-raised md-primary">save</md-button>
         <md-button class="md-raised md-primary">Delete</md-button>
@@ -67,16 +124,16 @@
         <md-button class="md-raised md-primary">Re-Schedule </md-button>
       </md-card-actions>
     </md-card>
- 
 
-  <!-- Angular Material requires Angular.js Libraries -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 
-  <!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
     <!-- All Javascript at the bottom of the page for faster page loading -->
 
     <!-- First try for the online version of jQuery-->
@@ -87,12 +144,12 @@
 
     <!-- Bootstrap JS -->
     <script src="includes/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="includes/ajs/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="includes/js/ui-bootstrap-tpls-2.1.3.min.js"></script>
 <!-- Personal js file
- -->  <script src="authCtrl/authController.js"></script>
+-->  <script src="homeCtrl.js"></script>
 
 <!-- <script type="text/javascript" src="./js/demo.js"></script>
- -->
+-->
 </body>
 
 </html>

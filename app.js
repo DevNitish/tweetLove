@@ -17,7 +17,7 @@ var T = new Twit(config);
 //
 //  tweet 'hello world!'
 //
-var tweet={ status: 'Good evening pals RT for free follow' };
+var tweet={ status: 'Good Afternoon' };
 T.post('statuses/update', tweet, function(err, data, response) {
   if(err){
   	console.log("Something went wrong: ",err)
