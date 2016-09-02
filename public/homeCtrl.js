@@ -1,8 +1,8 @@
 // Code goes here
-var myApp=angular.module('myApp',['ngMaterial','ui.bootstrap']);
-myApp.controller('myCtrl',['$scope','$log','$http','$rootScope','$window','$location','$timeout','$q','uibDateParser', function($scope,$log,$http,$rootScope,$window,$location,$timeout,$q,uibDateParser){
+var tweetApp=angular.module('tweetApp',['ngMaterial','ui.bootstrap']);
+tweetApp.controller('myCtrl',['$scope','$log','$http','$rootScope','$window','$location','$timeout','$q','uibDateParser','Socket', function($scope,$log,$http,$rootScope,$window,$location,$timeout,$q,uibDateParser,Socket){
   //main work starts
-
+  var socket = Socket($scope);
   //this is for datepicker
 $scope.format = 'dd/MM/yyyy';
   $scope.date = new Date();
@@ -139,9 +139,12 @@ $scope.format = 'dd/MM/yyyy';
     $tempTweet="";
   $scope.saveTweet=function(text){
     var obj= {"_id": "57be92fa9f034b7eef6145fc",
-    "text": text,
-    "date": $scope.tweetTime,
-    "status": false};
+              "text": text,
+              "date": $scope.tweetTime,
+              "status": false
+            };
+   socket.emit('new tweet',obj);
+
     $scope.myTweet.push(obj);
      $tempTweet="";
   console.log("---->myTweet",$scope.myTweet);
