@@ -1,8 +1,70 @@
 // Code goes here
 var tweetApp=angular.module('tweetApp',['ngMaterial','ui.bootstrap']);
-tweetApp.controller('myCtrl',['$scope','$log','$http','$rootScope','$window','$location','$timeout','$q','uibDateParser','Socket', function($scope,$log,$http,$rootScope,$window,$location,$timeout,$q,uibDateParser,Socket){
+tweetApp.controller('myCtrl',['$scope','$filter','$log','$http','$rootScope','$window','$location','$timeout','$q','uibDateParser','Socket', function($scope,$filter,$log,$http,$rootScope,$window,$location,$timeout,$q,uibDateParser,Socket){
   //main work starts
   var socket = Socket($scope);
+
+
+  $scope.tweetTime='';
+   $scope.sendDateTime='';
+   $scope.dayofWeek='';
+  $scope.$watchGroup(['dt','mytime'],function(newVal,oldVal){
+  $scope.tweetTime=newVal[0].toString().substr(0,15)+newVal[1].toString().substr(15);
+    var tempDate= new Date($scope.tweetTime);//convert string into date
+    var timTime=$filter('date')(tempDate, 'dd-MM-yyyy'); //convert date into perticular formate
+    $scope.sendDateTime=$scope.tweetTime.toString().substr(16,6)+timTime;
+   dayofweek();
+  });
+function dayofweek(){ //the the day of Week
+switch ($scope.tweetTime.substr(0,3)) {
+    case "Sun":
+        $scope.dayofWeek = 0;
+        break;
+    case "Mon":
+        $scope.dayofWeek = 1;
+    break;
+    case "Tue":
+         $scope.dayofWeek = 2;
+    break;
+    case "Wed":
+    $scope.dayofWeek = 3;
+    break;
+    case "Thu":
+    $scope.dayofWeek = 4;
+    break;
+    case "Fri":
+    $scope.dayofWeek = 5;
+    break;
+
+    case  "Sat":
+        $scope.dayofWeek = 6;
+  }
+}
+  //Fri Sep 02 2016 10:33:00 GMT+0530 (India Standard Time)
+ 
+
+   //save the tweet
+    $scope.myTweet=[];
+    $tempTweet="";
+  $scope.saveTweet=function(text){
+    console.log("mr date--->",$scope.sendDateTime);
+    var obj= {"_id": "57be92fa9f034b7eef6145fc",
+              "text": text,
+              "dayofWeek":$scope.dayofWeek,
+              "date": $scope.sendDateTime,
+              "status": false
+            };
+   socket.emit('new tweet',obj);
+
+    $scope.myTweet.push(obj);
+     $tempTweet="";
+  console.log("---->myTweet",$scope.myTweet);
+
+  }
+   //save the tweet ends
+
+//================================================================================
+
   //this is for datepicker
 $scope.format = 'dd/MM/yyyy';
   $scope.date = new Date();
@@ -96,10 +158,6 @@ $scope.format = 'dd/MM/yyyy';
     return '';
   }
   //datepicker ends
-  $scope.tweetTime='';
-  $scope.$watchGroup(['dt','mytime'],function(newVal,oldVal){
-  $scope.tweetTime=newVal[0].toString().substr(0,15)+newVal[1].toString().substr(15);
-  });
 
   //this is time picker
     $scope.mytime = new Date();
@@ -134,23 +192,7 @@ $scope.format = 'dd/MM/yyyy';
   };
   //timepicker ends
 
-    //save the tweet
-    $scope.myTweet=[];
-    $tempTweet="";
-  $scope.saveTweet=function(text){
-    var obj= {"_id": "57be92fa9f034b7eef6145fc",
-              "text": text,
-              "date": $scope.tweetTime,
-              "status": false
-            };
-   socket.emit('new tweet',obj);
-
-    $scope.myTweet.push(obj);
-     $tempTweet="";
-  console.log("---->myTweet",$scope.myTweet);
-
-  }
-   //save the tweet ends
+ 
   //main work ends
   $scope.items = [
     'The first choice!',
