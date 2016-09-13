@@ -6,6 +6,12 @@ var Twit = require('twit');
 var CronJob = require('cron').CronJob;
 var config=require('./configuration/config.js');// get twitter config
 
+
+//connect to db
+var mongoose=require('mongoose');
+var db=mongoose.connect('mongodb://tweetAdmin:admin@ds031845.mlab.com:31845/tweetlove');
+
+//to run server
 var port=process.env.PORT || 8080;
 var server = require('http').createServer(app);
 
@@ -77,6 +83,33 @@ function doTweet(tweet){
     		 );
 }//end of doTweet
 
+
+
+
+//*********from fragile app.js************** 
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
+}
+
+//production error handler
+//no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+   res.render('error', {
+   message: err.message,
+    error: {}
+ });
+});
+
+module.exports = app;
 
 //  tweet 'hello world!'
 
