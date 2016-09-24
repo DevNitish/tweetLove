@@ -54,7 +54,8 @@ switch ($scope.tweetTime.substr(0,3)) {
               "date": $scope.sendDateTime,
               "status": false
             };
-   socket.emit('new tweet',obj);
+   socket.emit('new tweet',obj);//working
+   socket.emit('save tweet',obj);
 
     $scope.myTweet.push(obj);
      $tempTweet="";
@@ -64,7 +65,7 @@ switch ($scope.tweetTime.substr(0,3)) {
    //save the tweet ends
 
 //================================================================================
-
+  //below is the angular bootstrap stuff
   //this is for datepicker
 $scope.format = 'dd/MM/yyyy';
   $scope.date = new Date();
