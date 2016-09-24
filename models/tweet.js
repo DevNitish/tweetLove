@@ -14,14 +14,14 @@ var TweetSchema= new Schema({
 //
 var TweetModel= mongoose.model('TweetSchema',TweetSchema);
 
-TweetSchema.statics.saveTweet = function(text,dateTime,callback){
+TweetSchema.statics.saveTweet = function(data,callback){
 	var record= new TweetModel();
-		record.text=text;
+		record.text=data.text;
 		record.fav=false;
 		record.tweetCount=0;
 		record.createdTimeStamp=new Date();
 		record.lastTweeted=null;
-	record.save(function(err){
+	record.save(function(err,doc){
 		if(err){
 			console.log("not able to save in DB ",err);
 			callback(err,null);

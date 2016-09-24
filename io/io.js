@@ -9,22 +9,17 @@ var T = new Twit(config)
 
 module.exports = function(server) {
 //socket work
-    var io=require('socket.io').listen(server);
+var io=require('socket.io').listen(server);
 
-    io.on('connection', function (socket) {
-        var addedUser = false;
+io.on('connection', function (socket) {
+    require('../io/tweet.io.js')(socket, io);
+    var addedUser = false;
 
       // when the client emits 'new tweet', this listens and executes
       socket.on('new tweet',function(data){
         doTweet(data);
-      });
     });
-
-
-    
-
-
-
+  });// end of main io.on
 
     //corn schedular
     		var sec='';//range 0-59
@@ -68,3 +63,5 @@ module.exports = function(server) {
         		 );
     }//end of doTweet
 }
+
+//module.exports=io;

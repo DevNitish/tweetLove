@@ -1,6 +1,6 @@
 var Tweet=require('./tweet.js');
-var mongooose=require("mongooose"),
-Schema=mongooose.Schema;
+var mongoose=require("mongoose"),
+Schema=mongoose.Schema;
 
 var schedulerSchema= new Schema({
 
